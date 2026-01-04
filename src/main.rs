@@ -1,4 +1,6 @@
 mod prng;
+mod platform;
+mod arena;
 
 struct Matrix {
     rows : u32,

@@ -80,4 +80,17 @@ impl Arena {
         // we use .add() for pointer arithmetic. This is unsafe!
         unsafe { self.base.add(position_aligned) }
     }
+
+    pub fn push_zeroed(&mut self, size: usize) -> *mut u8 {
+        let ptr = self.push(size);
+        if !ptr.is_null(){
+            // ptr: where to start, 0: what byte to write, size: how many times
+            unsafe {
+                std::ptr::write_bytes(ptr, 0, size);
+            }
+        }
+        ptr
+    }
+
+
 }

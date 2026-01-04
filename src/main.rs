@@ -1,3 +1,5 @@
+mod prng;
+
 struct Matrix {
     rows : u32,
     cols : u32,
@@ -10,6 +12,6 @@ fn main() {
         cols: 2,
         data: Vec::new(),
     };
-    
+
     println!("Hello, world!");
 }

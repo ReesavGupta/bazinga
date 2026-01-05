@@ -92,5 +92,19 @@ impl Arena {
         ptr
     }
 
+    // an Arena is just a pointer moving forward. to "free" memory, we don't actually erase the data; we just move the pos pointer backward.
+    // the next time we call push, the arena will simply overwrite the "freed" space.
+    pub fn pos(&self) -> usize {
+        self.pos
+    }
+
+    pub fn pop_to(&mut self, target_pos: usize ) {
+        if target_pos > self.pos || target_pos == 0 {
+            panic!("Can not assign ptr pos that is ahead of the ptr or target pos can not be 0")
+        }
+        self.pos = target_pos
+    }
+
+
 
 }

@@ -104,7 +104,4 @@ impl Arena {
         }
         self.pos = target_pos
     }
-
-
-
 }
